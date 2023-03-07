@@ -48,6 +48,8 @@ describe('flashloan', () => {
     describe('borrowing funds', () => {
         it('borrows funds from the pool', async () => {
             let amount = tokens(100);
+            // calling executeFlashloans function to make a call to flashloan pool to borrowfunds, after pool sending the money,
+            // it ensures that the function 'recieveTokens' is called to get it money back/it calls the 'recieveTokens' function.
             let transaction = await flashLoanReciever.connect(deployer).executeFlashloan(amount);
             await transaction.wait();
 

@@ -32,6 +32,7 @@ contract FlashloanReciever {
 
     function executeFlashloan(uint _amt) external {
         require(msg.sender == owner, "Only owner can borrow amount");
+        // calls the function 'flashloan' in Flashloan.sol.
         pool.flashLoan(_amt);
     }
 }
